@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "32977873180",
+    "firebase_url": "https://github-analysis-6b243-default-rtdb.firebaseio.com",
+    "project_id": "github-analysis-6b243",
+    "storage_bucket": "github-analysis-6b243.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32977873180:android:fe6625b22a0a7acee5b2d9",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFQNTha6F151cZ5BtyaS5fIcXf5FVWWdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32977873180:android:f4372f3e7d0c7ddee5b2d9",
+        "android_client_info": {
+          "package_name": "com.example.git"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFQNTha6F151cZ5BtyaS5fIcXf5FVWWdw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
