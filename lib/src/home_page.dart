@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:github_analysis/src/api.dart';
 import 'package:github_analysis/src/custom_circleavatar.dart';
+import 'package:github_analysis/src/request.dart';
 import 'package:github_analysis/src/usuarios%20teste/usuarios.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _scrollController = ScrollController();
+  TextEditingController _searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,9 @@ class _HomePageState extends State<HomePage> {
           icon: const Icon(Icons.menu),
           iconSize: 30.0,
           color: Colors.white,
-          onPressed: () {},
+          onPressed: () {
+            
+          },
         ),
         title: const Text(
           'GitHub Analysis',
@@ -36,7 +41,9 @@ class _HomePageState extends State<HomePage> {
             icon: const Icon(Icons.search),
             iconSize: 30.0,
             color: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              _showSearchField();
+            },
           ),
         ],
       ),
@@ -147,7 +154,41 @@ class _HomePageState extends State<HomePage> {
 }
 
 
+void _showSearchField() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Digite o nome de usuário'),
+          content: TextField(
+            controller: _searchController,
+            decoration: InputDecoration(
+              hintText: 'Nome de usuário',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Fecha o AlertDialog
+              },
+              child: Text('Cancelar'),
+            ),
+            TextButton(
+              onPressed: () {
+                _searchUser(_searchController.text);
+                Navigator.pop(context); // Fecha o AlertDialog
+              },
+              child: Text('Buscar'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-
-
+  // Função para buscar o usuário com base no nome fornecido
+  void _searchUser(String username) async {
+    Api apiData = await request(username);
+    print(apiData.login);
+  }
 }
